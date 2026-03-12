@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #14110F; /* Pitch black text */
+  background-color: #F3F3F4; /* Platinum website background */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #F3F3F4;
+}
+
+/* Custom Utilities for the illuminated effect */
+.illuminated-card-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.illuminated-card-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(20, 17, 15, 0.08),
+    transparent 40%
+  );
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.illuminated-card-wrapper:hover::before {
+  opacity: 1;
+}
+
+.illuminated-content {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: inherit;
+  margin: 1px; /* space for the gradient border to show through */
+  transition: all 0.3s ease;
+}
+
+.illuminated-content:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
