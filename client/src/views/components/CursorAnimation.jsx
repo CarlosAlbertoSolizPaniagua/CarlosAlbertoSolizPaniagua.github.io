@@ -86,12 +86,12 @@ export const CursorAnimation = () => {
 
             {/* Unified App Container: Event listeners will be bound here by threejs-toys */}
             <div id="particles-hero-app">
-                <div id="hero-content" className="flex flex-col items-center justify-center">
-                    <h1 className="text-[#ffffff] text-5xl md:text-7xl font-extrabold tracking-tight mb-2">
+                <div id="hero-content" className="flex flex-col items-center justify-center px-6 text-center">
+                    <h1 className="text-[#ffffff] text-4xl sm:text-5xl md:text-7xl tracking-tight mb-2 font-['Impact',_sans-serif]">
                         Carlos Alberto<br />Soliz Paniagua
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-400 mt-4 max-w-3xl">
-                        A software engineer building scalable, iterative experiences.
+                        A software Developer building iterative experiences.
                     </p>
                 </div>
             </div>

@@ -6,14 +6,12 @@ export function Contact() {
   return (
     <section id="contact" className="w-full bg-[#14110F] text-white py-20 px-6">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-4xl font-extrabold mb-8 text-center">
-          Let's Build Together
-        </h2>
+        <h2 className="text-4xl md:text-5xl font-['Impact',_sans-serif] tracking-wide font-normal mb-8 text-center">Let's Build Together</h2>
         <p className="text-gray-400 text-center mb-10">
           Have a project in mind? Reach out and let's make it happen.
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form action="INSERISCI_QUI_IL_TUO_LINK_FORMSPREE" method="POST" className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">Name</label>
@@ -25,7 +23,7 @@ export function Contact() {
                 onChange={handleChange}
                 required
                 className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all font-sans"
-                placeholder="John Doe"
+                placeholder="Carlos Soliz"
               />
             </div>
             <div>
@@ -38,7 +36,7 @@ export function Contact() {
                 onChange={handleChange}
                 required
                 className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all font-sans"
-                placeholder="john@example.com"
+                placeholder="carlos@example.com"
               />
             </div>
           </div>
