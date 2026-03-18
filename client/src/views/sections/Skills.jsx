@@ -3,7 +3,6 @@ import { SkillCard } from "../components/SkillCard";
 
 export function Skills() {
   return (
-    // Ho rimosso bg-[#14110F] da qui perché è già gestito dal container principale in App.jsx
     <section id="skills" className="w-full max-w-6xl mx-auto py-20 px-6 relative z-10">
       
       <div className="mb-12 text-center">
@@ -21,7 +20,7 @@ export function Skills() {
             - Colore schiarito (text-gray-400) per essere leggibile sullo sfondo nero 
         */}
         <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
-          A showcase of languages, frameworks, and databases I work with, built to scale.
+          A showcase of languages, frameworks, and databases I work with
         </p>
       </div>
 
