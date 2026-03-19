@@ -99,7 +99,11 @@ export const CursorAnimation = () => {
 
                 <a 
                     href="#skills" 
-                    className="pointer-events-auto absolute bottom-10 flex flex-col items-center animate-bounce text-gray-400 hover:text-white transition-colors duration-300"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="pointer-events-auto absolute bottom-10 flex flex-col items-center animate-bounce text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer"
                 >
                     <span className="text-xs md:text-sm font-medium tracking-[0.2em] uppercase mb-2">Scroll Down</span>
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

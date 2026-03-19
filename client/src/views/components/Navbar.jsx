@@ -1,7 +1,21 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
+/**
+ * Navbar Component
+ * 
+ * Global navigation hook. Includes a dynamically rendered "Back" button
+ * when the user navigates away from the main landing page, using React Router.
+ * 
+ * @returns {JSX.Element}
+ */
 export function Navbar() {
     const [isNegative, setIsNegative] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    // Determine if we're on the root page
+    const isHomePage = location.pathname === '/' || location.pathname === '';
 
     useEffect(() => {
         if (isNegative) {
@@ -14,29 +28,44 @@ export function Navbar() {
     }, [isNegative]);
 
     const handleScrollTop = (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (isHomePage) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     };
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#14110F]/80 backdrop-blur-md border-b border-white/10 text-white">
-            <div className="flex items-center">
-                <a 
-                    href="#" 
+        <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-6 py-4 bg-[#14110F]/80 backdrop-blur-md border-b border-white/10 text-white transition-all">
+            <div className="flex items-center gap-4">
+                {/* Back Button - Only visible when not on home page */}
+                {!isHomePage && (
+                    <button 
+                        onClick={() => navigate(-1)}
+                        className="flex items-center justify-center bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors"
+                        aria-label="Go back"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                    </button>
+                )}
+
+                <Link 
+                    to="/" 
                     onClick={handleScrollTop}
                     className="text-xl font-bold font-['Impact',_sans-serif] tracking-wider hover:text-gray-300 transition-colors"
                 >
                     solizspace.com
-                </a>
+                </Link>
             </div>
             
-            <div className="flex items-center space-x-6">
-                <a href="#about" className="text-sm font-medium hover:text-gray-300 transition-colors uppercase tracking-wider">About me</a>
-                <a href="#cv" className="text-sm font-medium hover:text-gray-300 transition-colors uppercase tracking-wider">CV</a>
+            <div className="flex items-center space-x-4 md:space-x-6">
+                <Link to="/about" className="hidden sm:block text-sm font-medium hover:text-gray-300 transition-colors uppercase tracking-wider">About me</Link>
+                <Link to="/cv" className="text-sm font-medium hover:text-gray-300 transition-colors uppercase tracking-wider">CV</Link>
                 
                 <button 
                     onClick={() => setIsNegative(!isNegative)}
-                    className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors ml-4"
+                    className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
                     aria-label="Toggle negative colors"
                     title="Toggle negative colors"
                 >
