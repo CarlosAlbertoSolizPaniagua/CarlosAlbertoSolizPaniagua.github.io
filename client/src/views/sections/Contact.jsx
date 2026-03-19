@@ -1,6 +1,6 @@
 export function Contact() {
   return (
-    <section id="contact" className="w-full bg-[#14110F] text-white py-20 px-6">
+    <section id="contact" className="w-full bg-transparent text-white py-20 px-6">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-['Impact',_sans-serif] tracking-wide font-normal mb-8 text-center">Let's Build Together</h2>
         <p className="text-gray-400 text-center mb-10">

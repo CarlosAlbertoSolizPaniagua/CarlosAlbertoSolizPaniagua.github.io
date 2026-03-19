@@ -2,15 +2,17 @@ import { Skills } from "./views/sections/Skills";
 import { Contact } from "./views/sections/Contact";
 import { CursorAnimation } from "./views/components/CursorAnimation";
 import { StarBackground } from "./views/components/StarBackground"; // Assicurati che il percorso sia giusto
+import { Navbar } from "./views/components/Navbar";
 
 function App() {
   return (
     // Ho cambiato il background in scuro e il testo in chiaro
     <div className="w-full min-h-screen bg-[#14110F] text-[#F3F3F4] font-sans antialiased overflow-x-hidden relative">
+      <Navbar />
       
       {/* Sfondo stellato fisso in background (z-0) */}
       <StarBackground />
-      
+
       {/* Cursore interattivo */}
       <CursorAnimation />
 
